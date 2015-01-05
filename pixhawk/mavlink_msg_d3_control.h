@@ -1,6 +1,6 @@
-// MESSAGE D3_Control PACKING
+// MESSAGE D3_CONTROL PACKING
 
-#define MAVLINK_MSG_ID_D3_Control 199
+#define MAVLINK_MSG_ID_D3_CONTROL 199
 
 typedef struct __mavlink_d3_control_t
 {
@@ -10,16 +10,16 @@ typedef struct __mavlink_d3_control_t
  uint8_t state; ///< 0: Position Control, 1: Landing, 2: Starting, 3: Follow Target 
 } mavlink_d3_control_t;
 
-#define MAVLINK_MSG_ID_D3_Control_LEN 13
+#define MAVLINK_MSG_ID_D3_CONTROL_LEN 13
 #define MAVLINK_MSG_ID_199_LEN 13
 
-#define MAVLINK_MSG_ID_D3_Control_CRC 91
-#define MAVLINK_MSG_ID_199_CRC 91
+#define MAVLINK_MSG_ID_D3_CONTROL_CRC 32
+#define MAVLINK_MSG_ID_199_CRC 32
 
 
 
-#define MAVLINK_MESSAGE_INFO_D3_Control { \
-	"D3_Control", \
+#define MAVLINK_MESSAGE_INFO_D3_CONTROL { \
+	"D3_CONTROL", \
 	4, \
 	{  { "x", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_d3_control_t, x) }, \
          { "y", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_d3_control_t, y) }, \
@@ -45,13 +45,13 @@ static inline uint16_t mavlink_msg_d3_control_pack(uint8_t system_id, uint8_t co
 						       uint8_t state, float x, float y, float z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_D3_Control_LEN];
+	char buf[MAVLINK_MSG_ID_D3_CONTROL_LEN];
 	_mav_put_float(buf, 0, x);
 	_mav_put_float(buf, 4, y);
 	_mav_put_float(buf, 8, z);
 	_mav_put_uint8_t(buf, 12, state);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_D3_Control_LEN);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #else
 	mavlink_d3_control_t packet;
 	packet.x = x;
@@ -59,14 +59,14 @@ static inline uint16_t mavlink_msg_d3_control_pack(uint8_t system_id, uint8_t co
 	packet.z = z;
 	packet.state = state;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_D3_Control_LEN);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 
-	msg->msgid = MAVLINK_MSG_ID_D3_Control;
+	msg->msgid = MAVLINK_MSG_ID_D3_CONTROL;
 #if MAVLINK_CRC_EXTRA
-    return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_D3_Control_LEN);
+    return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 }
 
@@ -87,13 +87,13 @@ static inline uint16_t mavlink_msg_d3_control_pack_chan(uint8_t system_id, uint8
 						           uint8_t state,float x,float y,float z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_D3_Control_LEN];
+	char buf[MAVLINK_MSG_ID_D3_CONTROL_LEN];
 	_mav_put_float(buf, 0, x);
 	_mav_put_float(buf, 4, y);
 	_mav_put_float(buf, 8, z);
 	_mav_put_uint8_t(buf, 12, state);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_D3_Control_LEN);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #else
 	mavlink_d3_control_t packet;
 	packet.x = x;
@@ -101,14 +101,14 @@ static inline uint16_t mavlink_msg_d3_control_pack_chan(uint8_t system_id, uint8
 	packet.z = z;
 	packet.state = state;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_D3_Control_LEN);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 
-	msg->msgid = MAVLINK_MSG_ID_D3_Control;
+	msg->msgid = MAVLINK_MSG_ID_D3_CONTROL;
 #if MAVLINK_CRC_EXTRA
-    return mavlink_finalize_message_chan(msg, system_id, component_id, chan, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    return mavlink_finalize_message_chan(msg, system_id, component_id, chan, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    return mavlink_finalize_message_chan(msg, system_id, component_id, chan, MAVLINK_MSG_ID_D3_Control_LEN);
+    return mavlink_finalize_message_chan(msg, system_id, component_id, chan, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 }
 
@@ -153,16 +153,16 @@ static inline uint16_t mavlink_msg_d3_control_encode_chan(uint8_t system_id, uin
 static inline void mavlink_msg_d3_control_send(mavlink_channel_t chan, uint8_t state, float x, float y, float z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_D3_Control_LEN];
+	char buf[MAVLINK_MSG_ID_D3_CONTROL_LEN];
 	_mav_put_float(buf, 0, x);
 	_mav_put_float(buf, 4, y);
 	_mav_put_float(buf, 8, z);
 	_mav_put_uint8_t(buf, 12, state);
 
 #if MAVLINK_CRC_EXTRA
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, buf, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, buf, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, buf, MAVLINK_MSG_ID_D3_Control_LEN);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, buf, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 #else
 	mavlink_d3_control_t packet;
@@ -172,14 +172,14 @@ static inline void mavlink_msg_d3_control_send(mavlink_channel_t chan, uint8_t s
 	packet.state = state;
 
 #if MAVLINK_CRC_EXTRA
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, (const char *)&packet, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, (const char *)&packet, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, (const char *)&packet, MAVLINK_MSG_ID_D3_Control_LEN);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, (const char *)&packet, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 #endif
 }
 
-#if MAVLINK_MSG_ID_D3_Control_LEN <= MAVLINK_MAX_PAYLOAD_LEN
+#if MAVLINK_MSG_ID_D3_CONTROL_LEN <= MAVLINK_MAX_PAYLOAD_LEN
 /*
   This varient of _send() can be used to save stack space by re-using
   memory from the receive buffer.  The caller provides a
@@ -197,9 +197,9 @@ static inline void mavlink_msg_d3_control_send_buf(mavlink_message_t *msgbuf, ma
 	_mav_put_uint8_t(buf, 12, state);
 
 #if MAVLINK_CRC_EXTRA
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, buf, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, buf, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, buf, MAVLINK_MSG_ID_D3_Control_LEN);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, buf, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 #else
 	mavlink_d3_control_t *packet = (mavlink_d3_control_t *)msgbuf;
@@ -209,9 +209,9 @@ static inline void mavlink_msg_d3_control_send_buf(mavlink_message_t *msgbuf, ma
 	packet->state = state;
 
 #if MAVLINK_CRC_EXTRA
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, (const char *)packet, MAVLINK_MSG_ID_D3_Control_LEN, MAVLINK_MSG_ID_D3_Control_CRC);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, (const char *)packet, MAVLINK_MSG_ID_D3_CONTROL_LEN, MAVLINK_MSG_ID_D3_CONTROL_CRC);
 #else
-    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_Control, (const char *)packet, MAVLINK_MSG_ID_D3_Control_LEN);
+    _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_D3_CONTROL, (const char *)packet, MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 #endif
 }
@@ -219,7 +219,7 @@ static inline void mavlink_msg_d3_control_send_buf(mavlink_message_t *msgbuf, ma
 
 #endif
 
-// MESSAGE D3_Control UNPACKING
+// MESSAGE D3_CONTROL UNPACKING
 
 
 /**
@@ -276,6 +276,6 @@ static inline void mavlink_msg_d3_control_decode(const mavlink_message_t* msg, m
 	d3_control->z = mavlink_msg_d3_control_get_z(msg);
 	d3_control->state = mavlink_msg_d3_control_get_state(msg);
 #else
-	memcpy(d3_control, _MAV_PAYLOAD(msg), MAVLINK_MSG_ID_D3_Control_LEN);
+	memcpy(d3_control, _MAV_PAYLOAD(msg), MAVLINK_MSG_ID_D3_CONTROL_LEN);
 #endif
 }
